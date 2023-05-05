@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>.rectangle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 100px;
+        background-color: green;
+        border-radius: 20px;
+      }
+      
+      .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        margin: 0 5px;
+        opacity: 0.5;
+        animation: brightenAndDim 1.5s infinite;
+      }
+      
+      .dot-2 {
+        animation-delay: 0.5s;
+      }
+      
+      .dot-3 {
+        animation-delay: 1s;
+      }
+      
+      @keyframes brightenAndDim {
+        0%, 100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }</style>
+    <title>Get captions</title>
+</head>
+<body>
+    <div class="rectangle" style="visibility: hidden;">
+        <span class="dot dot-1"></span>
+        <span class="dot dot-2"></span>
+        <span class="dot dot-3"></span>
+      </div>
+    <input type="text" id="url_input" placeholder="enter youtube url">
+    <button onclick="get_transcript(document.querySelector('#url_input').value)">Get captions</button>
+    <textarea id="transcript" placeholder="transcript will appear here" rows="10" cols="40" readonly></textarea>
+    <button onclick="copy_text(document.querySelector('#transcript'))">Copy Transcript</button>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
